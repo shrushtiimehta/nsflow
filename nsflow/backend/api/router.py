@@ -26,6 +26,7 @@ from .v1 import export_endpoints
 from .v1 import fast_websocket
 from .v1 import fastapi_concierge_endpoints
 from .v1 import mcp_oauth_endpoints
+from .v1 import network_consultant_endpoints
 from .v1 import oneshot_endpoints
 from .v1 import pdf_endpoints
 from .v1 import vqa_endpoints
@@ -45,5 +46,6 @@ router.include_router(cruse_endpoints.router, prefix="/api/v1", tags=["CRUSE Thr
 router.include_router(oneshot_endpoints.router, tags=["One-Shot Chat"])
 router.include_router(pdf_endpoints.router, tags=["PDF Processing"])
 router.include_router(mcp_oauth_endpoints.router, tags=["MCP OAuth"])
+router.include_router(network_consultant_endpoints.router, tags=["Network Consultant"])
 if NSFLOW_PLUGIN_VQA_ENDPOINT:
     router.include_router(vqa_endpoints.router, tags=["Visual Question Answering"])
