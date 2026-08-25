@@ -258,7 +258,9 @@ const TabbedChatPanel = ({ isEditorMode = false }: TabbedChatPanelProps) => {
         <Tabs
           value={activeTabIndex}
           onChange={(_, newValue) => setActiveTab(tabConfig[newValue].id as any)}
-          variant="fullWidth"
+          variant="scrollable"
+          scrollButtons="auto"
+          allowScrollButtonsMobile
           sx={{
             minHeight: 48,
             '& .MuiTab-root': {
@@ -266,6 +268,7 @@ const TabbedChatPanel = ({ isEditorMode = false }: TabbedChatPanelProps) => {
               fontSize: '0.875rem',
               fontWeight: 500,
               textTransform: 'none',
+              whiteSpace: 'nowrap',
               color: theme.palette.text.secondary,
               '&.Mui-selected': {
                 color: theme.palette.primary.main,
