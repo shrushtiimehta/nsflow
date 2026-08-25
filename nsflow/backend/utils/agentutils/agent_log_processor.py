@@ -21,8 +21,8 @@ from typing import Any
 from typing import Dict
 from typing import Optional
 
-from neuro_san.internals.messages.chat_message_type import ChatMessageType
-from neuro_san.message_processing.message_processor import MessageProcessor
+from neuro_san.message.processors.message_processor import MessageProcessor
+from neuro_san.message.types.chat_message_type import ChatMessageType
 
 from nsflow.backend.trust.rai_service import RaiService
 from nsflow.backend.utils.agentutils.constants import AGENT_NETWORK_DESIGNER_NAME
@@ -112,7 +112,7 @@ class AgentLogProcessor(MessageProcessor):
             # log progress messages if any
             progress = chat_message_dict.get("structure", progress)
             if progress:
-                await self.logs_manager.progress_event(json.dumps({"progress": progress}))
+                await self.logs_manager.progress_event({"text": progress})
 
                 # Process with state manager only if the manual editor plugin is enabled
                 if self.NSFLOW_PLUGIN_MANUAL_EDITOR:
